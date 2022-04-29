@@ -1,4 +1,5 @@
 import React from 'react';
+import Banner from '../Banner/Banner';
 
 
 
@@ -6,7 +7,8 @@ const Header = () => {
 
     return (
 
-        <nav className="relative w-full flex flex-wrap  items-center justify-between  py-4  bg-gray-100 text-gray-500 hover:text-gray-700 focus:text-gray-700 shadow-lg navbar  navbar-expand-lg navbar-light  ">
+       <div>
+            <nav className="relative w-full flex flex-wrap  items-center justify-between  py-4  bg-gray-100 text-gray-500 hover:text-gray-700 focus:text-gray-700 shadow-lg navbar  navbar-expand-lg navbar-light  ">
             <div className="container-fluid w-full flex flex-wrap items-center justify-between px-6">
                 <button className=" navbar-toggler text-gray-500 border-0 hover:shadow-none hover:no-underline py-2 px-2.5 bg-transparent focus:outline-none focus:ring-0  focus:shadow-none focus:no-underline " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bars"
@@ -118,6 +120,11 @@ const Header = () => {
 
             </div>
         </nav>
+
+
+
+        <Banner></Banner>
+       </div>
 
 
 

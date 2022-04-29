@@ -10,8 +10,8 @@ const Footer = () => {
     const year = new Date().getFullYear();
     return (
         <footer className=" text-center text-white" style={{ "backgroundColor": "#f1f1f1" }}>
-            <div class="md:flex md:justify-between container mx-auto ">
-                <div class="mb-6 md:mb-0 sm:ml-2">
+            <div className="md:flex md:justify-between container mx-auto ">
+                <div className="mb-6 md:mb-0 sm:ml-2">
 
 
                     {/* company name starts */}
@@ -31,7 +31,7 @@ const Footer = () => {
 
                             <input type="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm text-center rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-60 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@gmail.com" required />
 
-                            <button type="button" class="text-white font-bold bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 rounded-lg text-sm px-5 py-2.5 ml-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Notify me</button>
+                            <button type="button" className="text-white font-bold bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 rounded-lg text-sm px-5 py-2.5 ml-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Notify me</button>
                         </div>
                     </div>
                     {/* sign up for email ends */}
@@ -44,19 +44,19 @@ const Footer = () => {
 
 
                 {/* resourses, follow and legal section starts */}
-                <div class="grid grid-cols-3 gap-4 ">
+                <div className="grid grid-cols-3 gap-4 ">
 
 
 
                     {/* resorses section starts */}
                     <div>
-                        <h2 class="my-6 text-sm font-bold text-slate-900 uppercase ">Resources</h2>
-                        <ul class="text-gray-600 dark:text-gray-400">
-                            <li class="mb-4">
-                                <a href="#local-market" class="hover:underline">Local Market</a>
+                        <h2 className="my-6 text-sm font-bold text-slate-900 uppercase ">Resources</h2>
+                        <ul className="text-gray-600 dark:text-gray-400">
+                            <li className="mb-4">
+                                <a href="#local-market" className="hover:underline">Local Market</a>
                             </li>
                             <li>
-                                <a href="#local-area" class="hover:underline">Local Area</a>
+                                <a href="#local-area" className="hover:underline">Local Area</a>
                             </li>
                         </ul>
                     </div>
@@ -67,13 +67,13 @@ const Footer = () => {
 
                     {/* follow section starts */}
                     <div>
-                        <h2 class="my-6 text-sm font-bold text-slate-900 uppercase">Follow us</h2>
-                        <ul class="text-gray-600 dark:text-gray-400">
-                            <li class="mb-4">
-                                <a target="_blank" href="https://github.com/Juniorashraf02" class="hover:underline ">Github</a>
+                        <h2 className="my-6 text-sm font-bold text-slate-900 uppercase">Follow us</h2>
+                        <ul className="text-gray-600 dark:text-gray-400">
+                            <li className="mb-4">
+                                <a target="_blank" href="https://github.com/Juniorashraf02" className="hover:underline ">Github</a>
                             </li>
                             <li>
-                                <a target="_blank" href="https://discord.com/channels/juniorashraf02#0658" class="hover:underline">Discord</a>
+                                <a target="_blank" href="https://discord.com/channels/juniorashraf02#0658" className="hover:underline">Discord</a>
                             </li>
                         </ul>
                     </div>
@@ -85,13 +85,13 @@ const Footer = () => {
 
                     {/* legal section starts */}
                     <div>
-                        <h2 class="my-6 text-sm font-bold text-slate-900 uppercase">Legal</h2>
-                        <ul class="text-gray-600 dark:text-gray-400">
-                            <li class="mb-4">
-                                <a href="#privacy" class="hover:underline">Privacy Policy</a>
+                        <h2 className="my-6 text-sm font-bold text-slate-900 uppercase">Legal</h2>
+                        <ul className="text-gray-600 dark:text-gray-400">
+                            <li className="mb-4">
+                                <a href="#privacy" className="hover:underline">Privacy Policy</a>
                             </li>
                             <li>
-                                <a href="#terms" class="hover:underline">Terms &amp; Conditions</a>
+                                <a href="#terms" className="hover:underline">Terms &amp; Conditions</a>
                             </li>
                         </ul>
                     </div>
