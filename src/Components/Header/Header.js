@@ -18,21 +18,25 @@ const Header = () => {
                 </button>
                 <div className="collapse navbar-collapse flex-grow items-center" id="navbarSupportedContent">
                     <a className="h-0 flex items-center text-gray-900 hover:text-gray-900 focus:text-gray-900 mt-2 lg:mt-0  mr-1 " href="#s">
-                      <p className="md:visible invisible text-2xl font-bold text-slate-700">Fruits warehouse</p>
+                        <p className="md:visible invisible text-2xl font-bold text-slate-700">Fruits warehouse</p>
                     </a>
 
-                    <ul className="navbar-nav flex flex-col pl-0 list-style-none mr-auto mt-0">
+        
+                    <ul className="navbar-nav flex flex-col pl-0 list-style-none ml-auto mt-0">
                         <li className="nav-item p-2">
                             <a className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" href="#inventory">Inventory</a>
                         </li>
                         <li className="nav-item p-2">
-                            <a className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" href="#s">Projects</a>
+                            <a className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" href="#s">Blogs</a>
                         </li>
                         <li className="nav-item p-2">
                             <a className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" href="#s">Log In</a>
                         </li>
                     </ul>
 
+                </div>
+                <div>
+                    <p className="invisible">hidden</p>
                 </div>
 
 
@@ -77,13 +81,13 @@ const Header = () => {
                                 <li>
                                     <a className=" dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100" href="#s">Another action</a>
                                 </li>
-                                
+
                             </ul>
                         </div>
                         {/* notification btn action ends */}
 
 
-                        
+
                         {/* image btn action starts */}
                         <div className="dropdown relative">
                             <a className="dropdown-toggle flex items-center hidden-arrow" href="#s" id="dropdownMenuButton2" role="button"
