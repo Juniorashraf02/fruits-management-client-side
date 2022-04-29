@@ -44,7 +44,7 @@ const Footer = () => {
 
 
                 {/* resourses, follow and legal section starts */}
-                <div className="grid grid-cols-3 gap-4 ">
+                <div className="grid grid-cols-3 gap-4 invisible md:visible h-0 md:h-auto ">
 
 
 
@@ -53,7 +53,7 @@ const Footer = () => {
                         <h2 className="my-6 text-sm font-bold text-slate-900 uppercase ">Resources</h2>
                         <ul className="text-gray-600 dark:text-gray-400">
                             <li className="mb-4">
-                                <a href="#local-market" className="hover:underline">Local Market</a>
+                                <a href="#downloadApp" className="hover:underline">Our App Link</a>
                             </li>
                             <li>
                                 <a href="#local-area" className="hover:underline">Local Area</a>
@@ -129,7 +129,7 @@ const Footer = () => {
             </div>
             {/* Social media section ends */}
 
-            <div className="text-center text-gray-700 p-4" style={{ "backgroundColor": "rgba(0, 0, 0, 0.1)" }}>
+            <div className="text-center text-gray-700 px-4" style={{ "backgroundColor": "rgba(0, 0, 0, 0.1)" }}>
                 © {year} Copyright: &nbsp;
                 <a className="text-gray-800" href="https://tailwind-elements.com/">Fruits warehouse</a>
             </div>
