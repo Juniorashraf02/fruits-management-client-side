@@ -1,100 +1,148 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import loginImage from '../Images/loginImage.png';
 import { SiGoogle } from 'react-icons/si';
-import { FaFacebookF, FaLinkedinIn } from 'react-icons/fa';
+import { FaFacebookF } from 'react-icons/fa';
+import { BsGithub } from 'react-icons/bs';
+import auth from '../firebase.init';
+import { useSignInWithEmailAndPassword, useSignInWithGoogle, useSendPasswordResetEmail, useSignInWithFacebook, useSignInWithGithub } from 'react-firebase-hooks/auth';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const LogIn = () => {
+    const [users, setUsers] = useState({
+        email: '',
+        pass: '',
+    });
+
+    const handleEmail = e => {
+        const inputEmail = e.target.value;
+
+        // console.log(inputEmail);
+        setUsers({ ...users, email: inputEmail })
+    }
+    const handlePassword = e => {
+        const inputPass = e.target.value;
+
+        // console.log(inputPass);
+        setUsers({ ...users, pass: inputPass })
+    }
+
+
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useSignInWithEmailAndPassword(auth);
+    const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
+    const [signInWithFacebook, fbUser, fbLoading, fbError] = useSignInWithFacebook(auth);
+    const [signInWithGithub, gituser, gitLoading, gitError] = useSignInWithGithub(auth);
+    const [sendPasswordResetEmail, sending, resetError] = useSendPasswordResetEmail(
+        auth
+    );
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        signInWithEmailAndPassword(users.email, users.pass);
+    }
+
+
     return (
-        <Link to='/login'>
-            <section class="h-screen ">
-                <p className='text-3xl text-slate-700 font-bold mt-4'>Log In To get full experience</p>
-                <div class="px-6 h-full text-gray-800">
-                    <div  class="md:flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full g-6 ">
-                        <div  class="grow-0 shrink-1 md:shrink-0 basis-auto xl:w-6/12 lg:w-6/12 md:w-9/12 mb-12 md:mb-0">
-                            <img src={loginImage} class="w-full" alt="Sample " />
-                        </div>
-                        <div class="xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
-                            <form>
-                                <div class="flex flex-row items-center justify-center lg:justify-start">
-                                    <p class="text-lg mb-0 mr-4 text-gray-400 font-semibold">Sign in with</p>
+
+        <section className="h-screen ">
+            <p className='text-3xl text-slate-700 font-bold mt-4'>Log In To get full experience</p>
+            <div className="px-6 h-full text-gray-800">
+                <div className="md:flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full g-6 ">
+                    <div className="grow-0 shrink-1 md:shrink-0 basis-auto xl:w-6/12 lg:w-6/12 md:w-9/12 mb-12 md:mb-0">
+                        <img src={loginImage} className="w-full" alt="Sample " />
+                    </div>
+                    <div className="xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
+                        <form onSubmit={handleSubmit}>
+                            <div className="flex flex-row items-center justify-center lg:justify-start">
+                                <p className="text-lg mb-0 mr-4 text-gray-400 font-semibold">Sign in with</p>
 
 
-                                    {/* btn for facebook */}
-                                    <button type="button" data-mdb-ripple="true" data-mdb-ripple-color="light" class="inline-block p-3 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out mx-1">
+                                {/* btn for facebook */}
+                                <button onClick={() => signInWithFacebook()} type="button" data-mdb-ripple="true" data-mdb-ripple-color="light" className="inline-block p-3 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out mx-1">
 
 
-                                        <FaFacebookF className="text-2xl"></FaFacebookF>
-                                    </button>
+                                    <FaFacebookF className="text-2xl"></FaFacebookF>
+                                </button>
 
 
-                                    {/* btn for google  */}
-                                    <button type="button" data-mdb-ripple="true" data-mdb-ripple-color="light" class="inline-block p-3 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out mx-1"
-                                    >
+                                {/* btn for google  */}
+                                <button onClick={() => signInWithGoogle()} type="button" data-mdb-ripple="true" data-mdb-ripple-color="light" className="inline-block p-3 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out mx-1"
+                                >
 
-                                        <SiGoogle className="text-2xl"></SiGoogle>
-                                    </button>
-
-
-                                    {/* btn for linkedin */}
-                                    <button type="button" data-mdb-ripple="true" data-mdb-ripple-color="light" class="inline-block p-3 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out mx-1"
-                                    >
-
-                                        <FaLinkedinIn className="text-2xl"></FaLinkedinIn>
-                                    </button>
-                                </div>
-
-                                <div class="flex items-center my-4 before:flex-1 before:border-t before:border-gray-300 before:mt-0.5 after:flex-1 after:border-t after:border-gray-300 after:mt-0.5" >
-                                    <p class="text-center font-semibold mx-4 mb-0 text-gray-400">Or</p>
-                                </div>
+                                    <SiGoogle className="text-2xl"></SiGoogle>
+                                </button>
 
 
+                                {/* btn for linkedin */}
+                                <button onClick={() => signInWithGithub()} type="button" data-mdb-ripple="true" data-mdb-ripple-color="light" className="inline-block p-3 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out mx-1"
+                                >
 
-                                {/* email input starts */}
-                                <div class="mb-6">
-                                    <input type="text" class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                        id="exampleFormControlInput2"
-                                        placeholder="Email address"
-                                    />
-                                </div>
-                                {/* email input starts */}
+                                    <BsGithub className="text-2xl"></BsGithub>
+                                </button>
+                            </div>
+
+                            <div className="flex items-center my-4 before:flex-1 before:border-t before:border-gray-300 before:mt-0.5 after:flex-1 after:border-t after:border-gray-300 after:mt-0.5" >
+                                <p className="text-center font-semibold mx-4 mb-0 text-gray-400">Or</p>
+                            </div>
 
 
 
-                                {/* passward input starts */}
-                                <div class="mb-3">
-                                    <input type="password" class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                        id="exampleFormControlInput2"
-                                        placeholder="Password"
-                                    />
-                                </div>
-                                {/* passward input ends */}
+                            {/* email input starts */}
+                            <div className="mb-6">
+                                <input onChange={handleEmail} type="text" className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                    id="exampleFormControlInput2"
+                                    placeholder="Email address"
+                                />
+                            </div>
+                            {/* email input starts */}
 
 
 
-                                
-                                    
-                                    <p class=" text-right mb-2 text-blue-600"><u>Forgot password?</u></p>
-                                
+                            {/* passward input starts */}
+                            <div className="mb-3">
+                                <input onChange={handlePassword} type="password" className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                    id="exampleFormControlInput2"
+                                    placeholder="Password"
+                                />
+                            </div>
+                            {/* passward input ends */}
 
-                                <div class="text-center lg:text-left">
-                                    <button type="button" class="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out w-full"  >
-                                        Login
-                                    </button>
-                                    <p class="text-sm font-semibold mt-2 pt-1 mb-0">
-                                        Don't have an account?
-                                        <Link
-                                            to="/signup"
-                                            class="text-red-600 hover:text-red-700 focus:text-red-700 transition duration-200 ease-in-out mb-64" >Register
-                                        </ Link>
-                                    </p>
-                                </div>
-                            </form>
-                        </div>
+
+
+
+
+                            <p onClick={async () => {
+                                await sendPasswordResetEmail(users.email);
+                                toast('Sent email');
+                            }} className="cursor-pointer text-right mb-2 text-blue-600"><u>Forgot password?</u></p>
+
+
+                            <div className="text-center lg:text-left">
+                                <button type="submit" className="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out w-full"  >
+                                    Login
+                                </button>
+                                <p className="text-sm font-semibold mt-2 pt-1 mb-0">
+                                    Don't have an account?
+                                    <Link
+                                        to="/signup"
+                                        className="text-red-600 hover:text-red-700 focus:text-red-700 transition duration-200 ease-in-out mb-64" >Register
+                                    </ Link>
+                                </p>
+                                <ToastContainer />
+                            </div>
+                        </form>
                     </div>
                 </div>
-            </section>
-        </Link>
+            </div>
+            
+        </section>
+
     );
 };
 
