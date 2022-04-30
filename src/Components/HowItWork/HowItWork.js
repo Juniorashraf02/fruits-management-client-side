@@ -29,7 +29,7 @@ const HowItWork = () => {
             </div>
 
 
-            <DownloadAppSection/>
+            
         </div>
     );
 };

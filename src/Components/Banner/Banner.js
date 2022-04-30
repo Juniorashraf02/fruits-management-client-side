@@ -2,7 +2,7 @@ import React from 'react';
 import img1 from '../Images/Fruits1.png';
 import img2 from '../Images/Fruits2.png';
 import img3 from '../Images/Fruits3.png';
-import Inventory from './../Inventory/Inventory';
+
 
 const Banner = () => {
     return (
@@ -93,7 +93,7 @@ const Banner = () => {
             {/* carosel ends */}
 
 
-            <Inventory/>
+            
         </div>
     );
 };

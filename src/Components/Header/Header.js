@@ -1,5 +1,5 @@
 import React from 'react';
-import Banner from '../Banner/Banner';
+import { Link } from 'react-router-dom';
 
 
 
@@ -19,12 +19,15 @@ const Header = () => {
                     </svg>
                 </button>
                 <div className="collapse navbar-collapse flex-grow items-center" id="navbarSupportedContent">
-                    <a className="h-0 flex items-center text-gray-900 hover:text-gray-900 focus:text-gray-900 mt-2 lg:mt-0  mr-1 " href="#s">
+                    <Link className="h-0 flex items-center text-gray-900 hover:text-gray-900 focus:text-gray-900 mt-2 lg:mt-0  mr-1 " to="/">
                         <p className="md:visible invisible text-2xl font-bold text-slate-700">Fruits warehouse</p>
-                    </a>
+                    </Link>
 
         
                     <ul className="navbar-nav flex flex-col pl-0 list-style-none ml-auto mt-0">
+                        <li className="nav-item p-2">
+                            <Link to='/home' className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" >Home</Link>
+                        </li>
                         <li className="nav-item p-2">
                             <a className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" href="#inventory">Inventory</a>
                         </li>
@@ -32,7 +35,7 @@ const Header = () => {
                             <a className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" href="#s">Blogs</a>
                         </li>
                         <li className="nav-item p-2">
-                            <a className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" href="#s">Log In</a>
+                            <Link to="/login" className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" >Log In</Link>
                         </li>
                     </ul>
 
@@ -123,7 +126,7 @@ const Header = () => {
 
 
 
-        <Banner></Banner>
+        
        </div>
 
 
