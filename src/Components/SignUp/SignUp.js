@@ -5,7 +5,8 @@ import { FaFacebookF } from 'react-icons/fa';
 import { BsGithub } from 'react-icons/bs';
 import { useCreateUserWithEmailAndPassword,useSignInWithGoogle, useSignInWithFacebook,useSignInWithGithub } from 'react-firebase-hooks/auth';
 import auth from '../firebase.init';
- import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -188,6 +189,7 @@ const SignUp = () => {
 
 
                 </form>
+                <ToastContainer />
             </div>
         </div>
 
