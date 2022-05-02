@@ -48,15 +48,13 @@ const Header = () => {
                             <li className="nav-item p-2">
                                 <Link to='/home' className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" >Home</Link>
                             </li>
-                            <li className="nav-item p-2">
-                                <a className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" href="#inventory">Inventory</a>
-                            </li>
+                            {/* <li className="nav-item p-2">
+                                <Link className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" to="/inventory">Inventory</Link>
+                            </li> */}
                             <li className="nav-item p-2">
                                 <a className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" href="#s">Blogs</a>
                             </li>
-                            {/* <li className="nav-item p-2">
-                            <Link to="/login" className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" >Log In</Link>
-                        </li> */}
+                           
                         </ul>
 
                     </div>
@@ -109,7 +107,7 @@ const Header = () => {
                                 </a>
                                 <ul className="dropdown-menu min-w-max absolute hidden bg-white text-base z-50 float-left p-2 list-none text-center rounded-lg shadow-lg mt-1  m-0  right-0 bg-clip-padding border-none left-auto" aria-labelledby="dropdownMenuButton1">
                                     <li className='mb-2 '>
-                                        <a className="dropdown-item text-sm py-2 px-6 font-semibold rounded-lg whitespace-nowrap bg-transparent text-white bg-green-700 hover:bg-green-600" href="#s">Add items</a>
+                                        <Link to='/add-item' className="dropdown-item text-sm py-2 px-6 font-semibold rounded-lg whitespace-nowrap bg-transparent text-white bg-green-700 hover:bg-green-600" href="#s">Add items</Link>
                                     </li>
                                     <li className='mt-4'>
                                     <a className="dropdown-item text-sm py-2 px-4 font-semibold rounded-lg whitespace-nowrap bg-transparent text-white bg-red-700 hover:bg-red-600" href="#s">Delete items</a>
@@ -139,7 +137,7 @@ const Header = () => {
                                                 </li>
                                                 
                                                 <li>
-                                                    <a className=" dropdown-item text-sm py-2 bg-transparent text-gray-700 hover:bg-gray-100  px-10 font-semibold rounded-lg" href="#s">Manage Items</a>
+                                                    <Link className=" dropdown-item text-sm py-2 bg-transparent text-gray-700 hover:bg-gray-100  px-10 font-semibold rounded-lg" to="/manage-inventory">Manage Items</Link>
                                                 </li>
                                             </div>
                                             :
@@ -148,7 +146,7 @@ const Header = () => {
                                     <li className='p-3'>
                                         {
                                             user?
-                                                <Link to='/login' onClick={handleSingOut} className=" dropdown-item text-sm py-2 px-10 font-semibold rounded-lg whitespace-nowrap bg-transparent text-white bg-red-400 hover:bg-red-300" href="#s">Log Out</Link>
+                                                <Link to='/login' onClick={handleSingOut} className=" dropdown-item text-sm py-2 px-10 font-semibold rounded-lg whitespace-nowrap bg-transparent text-white bg-red-400 hover:bg-red-300">Log Out</Link>
                                                 :
                                                 <Link to='/login' className=" dropdown-item text-sm py-2 px-10 font-semibold rounded-lg whitespace-nowrap bg-transparent text-white  bg-blue-400 hover:bg-blue-300" href="#s">Log In</Link>
                                         }

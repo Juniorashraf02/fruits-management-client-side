@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import loginImage from '../Images/loginImage.png';
 import { SiGoogle } from 'react-icons/si';
 import { FaFacebookF } from 'react-icons/fa';
 import { BsGithub } from 'react-icons/bs';
 import auth from '../firebase.init';
-import { useSignInWithEmailAndPassword, useSignInWithGoogle, useSendPasswordResetEmail, useSignInWithFacebook, useSignInWithGithub } from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword, useSignInWithGoogle, useSendPasswordResetEmail, useSignInWithFacebook, useSignInWithGithub, useAuthState } from 'react-firebase-hooks/auth';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+
+
 const LogIn = () => {
+    
     const [users, setUsers] = useState({
         email: '',
         pass: '',
@@ -27,13 +30,13 @@ const LogIn = () => {
         // console.log(inputPass);
         setUsers({ ...users, pass: inputPass })
     }
-
+    
 
     const [
         signInWithEmailAndPassword,
-        user,
-        loading,
-        error,
+        emailUser,
+        emailLoading,
+        emailError,
     ] = useSignInWithEmailAndPassword(auth);
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
     const [signInWithFacebook, fbUser, fbLoading, fbError] = useSignInWithFacebook(auth);
@@ -46,6 +49,49 @@ const LogIn = () => {
         e.preventDefault();
         signInWithEmailAndPassword(users.email, users.pass);
     }
+    const [user, loading, error ] = useAuthState(auth);
+    let navigate = useNavigate();
+    let location = useLocation();
+    let from = location.state?.from?.pathname || "/";
+    if(user){
+        navigate(from, {replace: true});
+    }
+    if (loading) {
+        return <div class="mt-20 flex justify-center items-center space-x-2">
+        <div class="spinner-grow inline-block w-8 h-8 bg-current rounded-full opacity-0 text-blue-600" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="
+            spinner-grow inline-block w-8 h-8 bg-current rounded-full opacity-0
+              text-purple-500
+            " role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="
+            spinner-grow inline-block w-8 h-8 bg-current rounded-full opacity-0
+              text-green-500
+            " role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow inline-block w-8 h-8 bg-current rounded-full opacity-0 text-red-500" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="
+            spinner-grow inline-block w-8 h-8 bg-current rounded-full opacity-0
+              text-yellow-500
+            " role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow inline-block w-8 h-8 bg-current rounded-full opacity-0 text-blue-300" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow inline-block w-8 h-8 bg-current rounded-full opacity-0 text-gray-300" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    }
+    
+    
 
 
     return (

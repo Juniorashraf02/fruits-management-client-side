@@ -1,6 +1,6 @@
 [
     {
-        "id":1,
+        "id": 1,
         "name": "Apple",
         "price": "30$",
         "supplier": "Alex corporation",
@@ -12,90 +12,99 @@
         "id":2,
         "name": "Lemon",
         "price": "20$",
-        "Supplier": "Otoa tradings",
+        "supplier": "Otoa corporation",
         "quantity": 1100,
         "description": "Fresh, chemical free, bigger in size",
-        "img": "https://cdn.pixabay.com/photo/2016/11/21/16/40/agriculture-1846358_960_720.jpg"
+        "img": "https://cdn.pixabay.com/photo/2020/07/24/21/58/lemon-5435158_960_720.jpg"
     },
     {
         "id":3,
         "name": "Stawberry",
         "price": "80$",
-        "Supplier": "xen farmako",
+        "supplier": "Xen farmako",
         "quantity": 2000,
         "description": "Fresh, chemical free, ripe",
-        "img": "https://cdn.pixabay.com/photo/2016/01/05/13/58/apple-1122537_960_720.jpg"
+        "img": "https://cdn.pixabay.com/photo/2020/02/25/19/16/stawberry-4879794_960_720.jpg"
     },
     {
         "id":4,
         "name": "Mango",
         "price": "900$",
-        "Supplier": "Utopua fam",
+        "supplier": "Utopua fam",
         "quantity": 100,
         "description": "Fresh, Sweet yellow in color",
-        "img": "https://cdn.pixabay.com/photo/2016/01/05/13/58/apple-1122537_960_720.jpg"
+        "img": "https://cdn.pixabay.com/photo/2020/04/29/22/54/mango-5110837_960_720.jpg"
     },
     {
         "id":5,
-        "name": "Apple",
+        "name": "Pineapple",
         "price": "30$",
-        "Supplier": "Alex corporation",
+        "supplier": "Alex corporation",
         "quantity": 1500,
         "description": "Fresh, chemical free",
-        "img": "https://cdn.pixabay.com/photo/2016/01/05/13/58/apple-1122537_960_720.jpg"
+        "img": "https://cdn.pixabay.com/photo/2018/11/11/15/42/pineapple-3808963_960_720.jpg"
     },
     {
         "id":6,
-        "name": "Apple",
+        "name": "Jackfruit",
         "price": "30$",
-        "Supplier": "Alex corporation",
+        "supplier": "Dx corporation",
         "quantity": 1500,
         "description": "Fresh, chemical free",
-        "img": "https://cdn.pixabay.com/photo/2016/01/05/13/58/apple-1122537_960_720.jpg"
+        "img": "https://cdn.pixabay.com/photo/2017/03/01/15/50/jackfruit-2108869_960_720.jpg"
     },
     {
         "id":7,
-        "name": "Apple",
+        "name": "Blackberries/Redberries",
         "price": "30$",
-        "Supplier": "Alex corporation",
+        "supplier": "AUVex corporation",
         "quantity": 1500,
         "description": "Fresh, chemical free",
-        "img": "https://cdn.pixabay.com/photo/2016/01/05/13/58/apple-1122537_960_720.jpg"
+        "img": "https://cdn.pixabay.com/photo/2010/12/13/10/05/berries-2277_960_720.jpg"
     },
     {
         "id":8,
-        "name": "Apple",
+        "name": "Tomato",
         "price": "30$",
-        "Supplier": "Alex corporation",
+        "supplier": "Alex corporation",
         "quantity": 1500,
         "description": "Fresh, chemical free",
-        "img": "https://cdn.pixabay.com/photo/2016/01/05/13/58/apple-1122537_960_720.jpg"
+        "img": "https://cdn.pixabay.com/photo/2020/09/12/21/12/tomatoes-5566741_960_720.jpg"
     },
     {
         "id":9,
-        "name": "Apple",
+        "name": "Orange",
         "price": "30$",
-        "Supplier": "Alex corporation",
+        "supplier": "Vex corporation",
         "quantity": 1500,
         "description": "Fresh, chemical free",
-        "img": "https://cdn.pixabay.com/photo/2016/01/05/13/58/apple-1122537_960_720.jpg"
+        "img": "https://cdn.pixabay.com/photo/2016/01/02/01/59/oranges-1117628_960_720.jpg"
     },
     {
         "id":10,
-        "name": "Apple",
+        "name": "Grapes",
         "price": "30$",
-        "Supplier": "Alex corporation",
-        "quantity": 1500,
+        "supplier": "WDex corporation",
+        "quantity": 100,
         "description": "Fresh, chemical free",
-        "img": "https://cdn.pixabay.com/photo/2016/01/05/13/58/apple-1122537_960_720.jpg"
+        "img": "https://cdn.pixabay.com/photo/2018/07/20/14/02/grapes-3550733_960_720.jpg"
     },
     {
-        "id":11,
-        "name": "Apple",
+        "id":101,
+        "name": "Grapes",
+        "price": "80$",
+        "supplier": "PET corporation",
+        "quantity": 1000,
+        "description": "Fresh, chemical free",
+        "img": "https://cdn.pixabay.com/photo/2021/09/16/15/26/fruit-6630377_960_720.jpg"
+    },
+    {
+        "id":12,
+        "name": "Watermelon",
         "price": "30$",
-        "Supplier": "Alex corporation",
+        "supplier": "Alex corporation",
         "quantity": 1500,
         "description": "Fresh, chemical free",
-        "img": "https://cdn.pixabay.com/photo/2016/01/05/13/58/apple-1122537_960_720.jpg"
+        "img": "https://cdn.pixabay.com/photo/2021/09/20/08/12/watermelon-6640124_960_720.jpg"
     }
 ]

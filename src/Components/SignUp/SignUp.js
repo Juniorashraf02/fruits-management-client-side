@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { SiGoogle } from 'react-icons/si';
 import { FaFacebookF } from 'react-icons/fa';
 import { BsGithub } from 'react-icons/bs';
-import { useCreateUserWithEmailAndPassword,useSignInWithGoogle, useSignInWithFacebook,useSignInWithGithub } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword,useSignInWithGoogle, useSignInWithFacebook,useSignInWithGithub, useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../firebase.init';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -92,6 +92,16 @@ const SignUp = () => {
             }
         }
     },[emailError,googleError,fbError,gitError])
+
+
+    const [user, loading, error ] = useAuthState(auth);
+    let navigate = useNavigate();
+    let location = useLocation();
+    let from = location.state?.from?.pathname || "/";
+    if(user){
+        navigate(from, {replace: true});
+    }
+    
 
 
     return (

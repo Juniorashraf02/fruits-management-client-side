@@ -1,5 +1,5 @@
 import React from 'react';
-import appImage from '../Images/appimage.png';
+import appImage from '../../Images/appimage.png';
 const DownloadAppSection = () => {
     return (
         <div >

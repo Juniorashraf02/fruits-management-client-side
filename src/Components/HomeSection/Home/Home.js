@@ -2,7 +2,7 @@ import React from 'react';
 import Banner from '../Banner/Banner';
 import DownloadAppSection from '../DownloadAppSection/DownloadAppSection';
 import HowItWork from '../HowItWork/HowItWork';
-import Inventory from '../Inventory/Inventory';
+import Inventory from '../HomeInventory/HomeInventory';
 
 const Home = () => {
     return (
