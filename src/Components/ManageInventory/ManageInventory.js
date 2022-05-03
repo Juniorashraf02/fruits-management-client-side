@@ -4,7 +4,28 @@ import UseItems from './../UseItems/UseItems';
 import ManageItems from './ManageItems';
 
 const ManageInventory = () => {
-    const [products] = UseItems();
+    const [products, setProducts] = UseItems();
+    const handleDelete=id=>{
+        const proceed = window.confirm('Deleted items can not be recoverd. Do you want to proceed?');
+        if(proceed){
+            const url =`http://localhost:5000/items/${id}`
+            fetch(url,{
+                method: 'DELETE'
+            }).then(res=>res.json()).then(data=>{
+                console.log(data);
+                const remaining = products.filter(product=>product._id !== id);
+
+                if(remaining.length >= 15){
+                    setProducts(remaining);
+                }else{
+                    window.confirm('Company have enough land to supply fruits. For This reason we should have at least 15 stock fruits info')
+                }
+            
+
+                
+            })
+        }
+    }
     return (
         <div>
             <div className=''>
@@ -17,7 +38,7 @@ const ManageInventory = () => {
 
                 {
                     products.map(product => <ManageItems
-                        product={product} key={product.id}
+                        product={product} key={product._id} handleDelete={handleDelete}
                     ></ManageItems>)
                 }
             </div>
