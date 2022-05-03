@@ -34,7 +34,8 @@ const SingleInventoryProduct = () => {
         const itemQuantity = quantity;
         const newQuantity = itemQuantity - 1;
         console.log(newQuantity);
-        setProducts({ ...products, quantity: newQuantity });
+       
+
 
     }
 
@@ -58,7 +59,7 @@ const SingleInventoryProduct = () => {
                             Quantity: {quantity}
                         </p>
                         <p class="text-gray-700 text-base mb-4 h-1">
-                            Price: {price}
+                            Price: {price}$
                         </p>
                         <p class="text-gray-600 text-xs mt-3">Last updated {time} mins ago</p>
 
@@ -75,7 +76,7 @@ const SingleInventoryProduct = () => {
                             </div>
 
                         </div>
-                        <button type="button" class="inline-block px-6 py-2.5 bg-gray-800 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-gray-900 hover:shadow-lg focus:bg-gray-900 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-900 active:shadow-lg transition duration-150 ease-in-out">Delivered</button>
+                        <button onClick={handleDeliverBtn} type="button" class="inline-block px-6 py-2.5 bg-gray-800 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-gray-900 hover:shadow-lg focus:bg-gray-900 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-900 active:shadow-lg transition duration-150 ease-in-out">Delivered</button>
 
 
                         <button type="button" class="mt-1 inline-block px-6 py-2 border-2 border-gray-200 cursor-not-allowed text-gray-600 font-bold text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">{textArray[randomNumber]}</button>

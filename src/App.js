@@ -25,11 +25,12 @@ function App() {
         <RequireAuth>
           <SingleInventoryProduct/>
         </RequireAuth>
-          
-       
-            
-         
-        }></Route>
+           }></Route>
+        <Route path='/add-items' element={
+        <RequireAuth>
+          <AddItems/>
+        </RequireAuth>
+           }></Route>
         <Route path='/manage-inventory' element={<ManageInventory/>}></Route>
         <Route path='/login' element={<LogIn/>}></Route>
         <Route path='/add-item' element={<AddItems/>}></Route>

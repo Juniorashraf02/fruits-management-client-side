@@ -25,7 +25,7 @@ const SingleProduct = ({ product }) => {
                         <p className="text-left mb-2 text-gray-400 font-semibold">
                            <p>Quantity: {quantity}</p>
                            <p>Supplier: {supplier}</p>
-                           <p className='pl-2'>&nbsp; &nbsp;  price: <span>{price}</span></p> 
+                           <p className='pl-2'>&nbsp; &nbsp;  price: <span>{price}$</span></p> 
                         </p>
 
 

@@ -16,7 +16,7 @@ const ManageItems = ({ product }) => {
                         {description}
                     </p>
                     <p className="text-left text-blue-500 mb-2 font-semibold">
-                       <p>&nbsp; &nbsp; &nbsp; price: <span>{price}</span></p> 
+                       <p>&nbsp; &nbsp; &nbsp; price: <span>{price}$</span></p> 
                        <p>Quantity: {quantity}</p>
                        <p>Supplier: {supplier}</p>
                     </p>
