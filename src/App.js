@@ -10,6 +10,8 @@ import ManageInventory from './Components/ManageInventory/ManageInventory';
 import AddItems from './Components/ManageInventory/Additems/AddItems';
 import RequireAuth from './Components/RequireAuth/RequireAuth';
 import NotFound from './Components/NotFound/NotFound';
+import Blog from './Components/Blog/Blog';
+import ContactUs from './ContactUs/ContactUs';
 
 
 
@@ -39,6 +41,8 @@ function App() {
         
         }></Route>
         <Route path='/login' element={<LogIn/>}></Route>
+        <Route path='/blog' element={<Blog/>}></Route>
+        <Route path='/contact' element={<ContactUs/>}></Route>
         <Route path='/add-item' element={<AddItems/>}></Route>
         <Route path='/signup' element={<SignUp/>}></Route>
         <Route path='*' element={<NotFound/>}></Route>

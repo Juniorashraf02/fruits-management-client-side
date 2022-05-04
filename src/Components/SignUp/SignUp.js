@@ -73,11 +73,12 @@ const SignUp = () => {
 
 
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
-    const [signInWithFacebook, fbUser, fbleLoading, fbError] = useSignInWithFacebook(auth);
-    const [signInWithGithub, gitUser, gitleLoading, gitError] = useSignInWithGithub(auth);
+    const [signInWithFacebook, fbUser, fbLoading, fbError] = useSignInWithFacebook(auth);
+    const [signInWithGithub, gitUser, gitLoading, gitError] = useSignInWithGithub(auth);
+    const [user, loading, authError ] = useAuthState(auth);
 
     useEffect(() => {
-        const error = emailError||googleError||fbError||gitError;
+        const error = emailError||googleError||fbError||gitError||authError;
         if(error){
             switch(error?.code){
               case "auth/invalid-email":
@@ -91,15 +92,49 @@ const SignUp = () => {
                   toast("something went wrong")
             }
         }
-    },[emailError,googleError,fbError,gitError])
+    },[emailError,googleError,fbError,gitError,authError]);
 
 
-    const [user, loading, error ] = useAuthState(auth);
+    
     let navigate = useNavigate();
     let location = useLocation();
     let from = location.state?.from?.pathname || "/";
     if(user){
         navigate(from, {replace: true});
+    }
+    if (loading||googleLoading||fbLoading||gitLoading||emailLoading) {
+        return <div className="mt-20 flex justify-center items-center space-x-2">
+        <div className="spinner-grow inline-block w-8 h-8 bg-current rounded-full opacity-0 text-blue-600" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+        <div className="
+            spinner-grow inline-block w-8 h-8 bg-current rounded-full opacity-0
+              text-purple-500
+            " role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+        <div className="
+            spinner-grow inline-block w-8 h-8 bg-current rounded-full opacity-0
+              text-green-500
+            " role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+        <div className="spinner-grow inline-block w-8 h-8 bg-current rounded-full opacity-0 text-red-500" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+        <div className="
+            spinner-grow inline-block w-8 h-8 bg-current rounded-full opacity-0
+              text-yellow-500
+            " role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+        <div className="spinner-grow inline-block w-8 h-8 bg-current rounded-full opacity-0 text-blue-300" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+        <div className="spinner-grow inline-block w-8 h-8 bg-current rounded-full opacity-0 text-gray-300" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+      </div>
     }
     
 

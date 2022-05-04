@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import loginImage from '../Images/loginImage.png';
 import { SiGoogle } from 'react-icons/si';
@@ -32,64 +32,86 @@ const LogIn = () => {
     }
     
 
-    const [
-        signInWithEmailAndPassword,
-        emailUser,
-        emailLoading,
-        emailError,
-    ] = useSignInWithEmailAndPassword(auth);
+    const [signInWithEmailAndPassword,emailUser,emailLoading,emailError] = useSignInWithEmailAndPassword(auth);
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
     const [signInWithFacebook, fbUser, fbLoading, fbError] = useSignInWithFacebook(auth);
-    const [signInWithGithub, gituser, gitLoading, gitError] = useSignInWithGithub(auth);
-    const [sendPasswordResetEmail, sending, resetError] = useSendPasswordResetEmail(
-        auth
-    );
+    const [signInWithGithub, gitUser, gitLoading, gitError] = useSignInWithGithub(auth);
+    const [sendPasswordResetEmail, sending, resetError] = useSendPasswordResetEmail(auth);
+    const [user, loading, authError ] = useAuthState(auth);
+
+    useEffect(() => {
+        const error = emailError||googleError||fbError||gitError||authError||resetError;
+        if(error){
+            switch(error?.code){
+              case "auth/invalid-email":
+                  toast("Invalid email provided, please provide a valid email");
+                  break;
+
+              case "auth/invalid-password":
+                  toast("Wrong password. Intruder!!")
+                  break;
+              default:
+                  toast("something went wrong")
+            }
+        }
+    },[emailError,googleError,fbError,gitError,authError,resetError]);
 
     const handleSubmit = e => {
         e.preventDefault();
         signInWithEmailAndPassword(users.email, users.pass);
     }
-    const [user, loading, error ] = useAuthState(auth);
     let navigate = useNavigate();
     let location = useLocation();
     let from = location.state?.from?.pathname || "/";
-    if(user){
-        navigate(from, {replace: true});
-    }
-    if (loading) {
-        return <div class="mt-20 flex justify-center items-center space-x-2">
-        <div class="spinner-grow inline-block w-8 h-8 bg-current rounded-full opacity-0 text-blue-600" role="status">
-          <span class="visually-hidden">Loading...</span>
+
+    
+    
+    if (loading||googleLoading||fbLoading||gitLoading||emailLoading) {
+        return <div className="mt-20 flex justify-center items-center space-x-2">
+        <div className="spinner-grow inline-block w-8 h-8 bg-current rounded-full opacity-0 text-blue-600" role="status">
+          <span className="visually-hidden">Loading...</span>
         </div>
-        <div class="
+        <div className="
             spinner-grow inline-block w-8 h-8 bg-current rounded-full opacity-0
               text-purple-500
             " role="status">
-          <span class="visually-hidden">Loading...</span>
+          <span className="visually-hidden">Loading...</span>
         </div>
-        <div class="
+        <div className="
             spinner-grow inline-block w-8 h-8 bg-current rounded-full opacity-0
               text-green-500
             " role="status">
-          <span class="visually-hidden">Loading...</span>
+          <span className="visually-hidden">Loading...</span>
         </div>
-        <div class="spinner-grow inline-block w-8 h-8 bg-current rounded-full opacity-0 text-red-500" role="status">
-          <span class="visually-hidden">Loading...</span>
+        <div className="spinner-grow inline-block w-8 h-8 bg-current rounded-full opacity-0 text-red-500" role="status">
+          <span className="visually-hidden">Loading...</span>
         </div>
-        <div class="
+        <div className="
             spinner-grow inline-block w-8 h-8 bg-current rounded-full opacity-0
               text-yellow-500
             " role="status">
-          <span class="visually-hidden">Loading...</span>
+          <span className="visually-hidden">Loading...</span>
         </div>
-        <div class="spinner-grow inline-block w-8 h-8 bg-current rounded-full opacity-0 text-blue-300" role="status">
-          <span class="visually-hidden">Loading...</span>
+        <div className="spinner-grow inline-block w-8 h-8 bg-current rounded-full opacity-0 text-blue-300" role="status">
+          <span className="visually-hidden">Loading...</span>
         </div>
-        <div class="spinner-grow inline-block w-8 h-8 bg-current rounded-full opacity-0 text-gray-300" role="status">
-          <span class="visually-hidden">Loading...</span>
+        <div className="spinner-grow inline-block w-8 h-8 bg-current rounded-full opacity-0 text-gray-300" role="status">
+          <span className="visually-hidden">Loading...</span>
         </div>
       </div>
     }
+
+    
+
+    if(sending){
+        toast.success("Sending");
+    }
+
+    if(user||googleUser||emailUser||gitUser||fbUser){
+        navigate(from, {replace: true});
+    }
+
+    
     
     
 
@@ -165,7 +187,7 @@ const LogIn = () => {
 
                             <p onClick={async () => {
                                 await sendPasswordResetEmail(users.email);
-                                toast('Sent email');
+                                toast.success('Sent email');
                             }} className="cursor-pointer text-right mb-2 text-blue-600"><u>Forgot password?</u></p>
 
 
