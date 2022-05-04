@@ -99,7 +99,7 @@ const SignUp = () => {
     let navigate = useNavigate();
     let location = useLocation();
     let from = location.state?.from?.pathname || "/";
-    if(user||googleUser||gitUser||fbUser){
+    if(user||googleUser||gitUser||fbUser||emailUser){
         navigate(from, {replace: true});
     }
     if (loading||googleLoading||fbLoading||gitLoading||emailLoading) {
