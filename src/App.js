@@ -11,7 +11,8 @@ import AddItems from './Components/ManageInventory/Additems/AddItems';
 import RequireAuth from './Components/RequireAuth/RequireAuth';
 import NotFound from './Components/NotFound/NotFound';
 import Blog from './Components/Blog/Blog';
-import ContactUs from './ContactUs/ContactUs';
+import ContactUs from './Components/ContactUs/ContactUs';
+import MyItems from './Components/MyItems/MyItems';
 
 
 
@@ -21,34 +22,41 @@ function App() {
     <div className="App">
       <Header />
       <Routes>
-        <Route path='/' element={<Home/>}></Route>
-        <Route path='/home' element={<Home/>}></Route>
+        <Route path='/' element={<Home />}></Route>
+        <Route path='/home' element={<Home />}></Route>
         <Route path='/inventory/:id' element={
-        <RequireAuth>
-          <SingleInventoryProduct/>
-        </RequireAuth>
-           }></Route>
+          <RequireAuth>
+            <SingleInventoryProduct />
+          </RequireAuth>
+        }></Route>
         <Route path='/add-items' element={
-        <RequireAuth>
-          <AddItems/>
-        </RequireAuth>
-           }></Route>
+          <RequireAuth>
+            <AddItems />
+          </RequireAuth>
+        }></Route>
         <Route path='/manage-inventory' element={
           <RequireAuth>
-          <ManageInventory/>
-        </RequireAuth>
-        
-        
+            <ManageInventory />
+          </RequireAuth>
         }></Route>
-        <Route path='/login' element={<LogIn/>}></Route>
-        <Route path='/blog' element={<Blog/>}></Route>
-        <Route path='/contact' element={<ContactUs/>}></Route>
-        <Route path='/add-item' element={<AddItems/>}></Route>
-        <Route path='/signup' element={<SignUp/>}></Route>
-        <Route path='*' element={<NotFound/>}></Route>
+        <Route path='/login' element={<LogIn />}></Route>
+        <Route path='/blog' element={<Blog />}></Route>
+        <Route path='/contact' element={<ContactUs />}></Route>
+        <Route path='/add-item' element={
+          <RequireAuth>
+            <AddItems />
+          </RequireAuth>
+        }></Route>
+        <Route path='/my-item' element={
+          <RequireAuth>
+            <MyItems />
+          </RequireAuth>
+        }></Route>
+        <Route path='/signup' element={<SignUp />}></Route>
+        <Route path='*' element={<NotFound />}></Route>
       </Routes>
       <Footer />
-     
+
     </div>
   );
 }
