@@ -8,7 +8,7 @@ const MyItems = () => {
     const [yourItem,setyourItem]=useState([]);
     useEffect(()=>{
         const email = user.email;
-        const url = `http://localhost:5000/items?email=${email}`
+        const url = `http://localhost:5000/myitem?email=${email}`
         fetch(url)
         .then(res=> res.json())
         .then(data=>{
@@ -17,7 +17,7 @@ const MyItems = () => {
     },[user]);
     return (
         <div>
-            <h1>Your number of orders:{yourItem.length}</h1>
+            <h1 className='text-2xl text-blue-700 mt-10 font-semibold'>Your Added Item: {yourItem.length}</h1>
         </div>
     );
 };
