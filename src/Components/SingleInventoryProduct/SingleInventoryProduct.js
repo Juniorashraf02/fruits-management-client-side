@@ -19,7 +19,7 @@ const SingleInventoryProduct = () => {
 
     const time = Math.floor(Math.random() * 10);
     const textArray = [
-        "SOLD",
+        "MORE ARRAVING SOON",
         "MARKET DEMAND HIGH",
         "FARMER'S CHOICE",
     ];

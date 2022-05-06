@@ -22,6 +22,9 @@ const AddItems = () => {
       console.log(result);
     });
 
+    window.confirm('successfully added item')
+    
+
     // const url2 = `http://localhost:5000/newItem`
     // fetch(url2,{
     //   method: 'POST',

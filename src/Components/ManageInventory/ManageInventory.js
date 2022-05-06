@@ -21,15 +21,6 @@ const ManageInventory = () => {
                     window.confirm('Company have enough land to supply fruits. For This reason we should have at least 15 stock fruits info')
                 }   
             });
-
-            // const url2 =`http://localhost:5000/newItem/${id}`
-            // fetch(url2,{
-            //     method: 'DELETE'
-            // }).then(res=>res.json()).then(data=>{
-            //     console.log(data);
-            //     const remaining = products.filter(product=>product._id !== id);
-            //     setProducts(remaining);       
-            // });
         }
     }
     return (
