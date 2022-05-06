@@ -64,7 +64,7 @@ const LogIn = () => {
         await signInWithEmailAndPassword(users.email, users.pass);
 
         const email = users.email
-        const {data} = await axios.post('http://localhost:5000/login', {email});
+        const {data} = await axios.post('https://young-gorge-41222.herokuapp.com/login', {email});
         localStorage.setItem('accessToken', data.accessToken);
         
 

@@ -4,6 +4,7 @@ import DownloadAppSection from '../DownloadAppSection/DownloadAppSection';
 import HowItWork from '../HowItWork/HowItWork';
 import Inventory from '../HomeInventory/HomeInventory';
 import { Helmet } from 'react-helmet-async';
+
 const Home = () => {
     return (
         <div>
@@ -12,7 +13,6 @@ const Home = () => {
             <Helmet>
                 <title>Home - Fruits Warehouse</title>
             </Helmet>
-            
             <Banner />
             <Inventory />
             <HowItWork />

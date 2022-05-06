@@ -9,7 +9,7 @@ const SingleInventoryProduct = () => {
     const { id } = useParams();
     const [items, setItems] = useState([]);
     useEffect(() => {
-        const url = `http://localhost:5000/items/${id}`
+        const url = `https://young-gorge-41222.herokuapp.com/items/${id}`
         fetch(url)
             .then(response => response.json())
             .then(data => { setItems(data) })
@@ -34,7 +34,7 @@ const SingleInventoryProduct = () => {
         } else {
             const newQuantity = parseInt(inputNumner) + parseInt(quantity);
             setItems({ ...items, quantity: newQuantity });
-            const url = `http://localhost:5000/items/${_id}`
+            const url = `https://young-gorge-41222.herokuapp.com/items/${_id}`
             // console.log({newQuantity})
             fetch(url, {
                 method: 'PUT',
@@ -56,7 +56,7 @@ const SingleInventoryProduct = () => {
     const handleReduceQuantity = () => {
         const newQuantity = parseInt(quantity) - 1;
         setItems({ ...items, quantity: newQuantity });
-        const url = `http://localhost:5000/items/${_id}`
+        const url = `https://young-gorge-41222.herokuapp.com/items/${_id}`
         // console.log({newQuantity})
         fetch(url, {
             method: 'PUT',

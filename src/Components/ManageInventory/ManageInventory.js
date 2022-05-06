@@ -8,7 +8,7 @@ const ManageInventory = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Deleted items can not be recoverd. Do you want to proceed?');
         if (proceed) {
-            const url = `http://localhost:5000/items/${id}`
+            const url = `https://young-gorge-41222.herokuapp.com/items/${id}`
             fetch(url, {
                 method: 'DELETE'
             }).then(res => res.json()).then(data => {
