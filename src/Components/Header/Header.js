@@ -6,6 +6,7 @@ import nouser from '../Images/nouser.png';
 import { getAuth, signOut } from "firebase/auth";
 import { BsCartPlus } from 'react-icons/bs';
 import { IoMdNotifications } from 'react-icons/io';
+import CustomLink from '../CustomLink/CustomLink';
 
 
 
@@ -33,6 +34,8 @@ const Header = () => {
         <div>
             <nav className="relative w-full flex flex-wrap  items-center justify-between  py-4  bg-gray-100 text-gray-500 hover:text-gray-700 focus:text-gray-700 shadow-lg navbar  navbar-expand-lg navbar-light  ">
                 <div className="container-fluid w-full flex flex-wrap items-center justify-between px-6">
+
+                    {/* toogle icon with buttons starts */}
                     <button className=" navbar-toggler text-gray-500 border-0 hover:shadow-none hover:no-underline py-2 px-2.5 bg-transparent focus:outline-none focus:ring-0  focus:shadow-none focus:no-underline " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bars"
                             className="w-6" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -41,29 +44,35 @@ const Header = () => {
                             </path>
                         </svg>
                     </button>
+                    {/* toogle icon with buttons ends */}
+
+
                     <div className="collapse navbar-collapse flex-grow items-center" id="navbarSupportedContent">
+
+                        {/* website name */}
                         <Link className="h-0 flex items-center text-gray-900 hover:text-gray-900 focus:text-gray-900 mt-2 lg:mt-0  mr-1 " to="/">
-                            <p className="md:visible invisible text-2xl font-bold text-slate-700">Fruits warehouse</p>
+                            <p className="md:visible invisible text-2xl font-bold text-slate-700">Fruits Warehouse</p>
                         </Link>
 
 
                         <ul className="navbar-nav flex flex-col pl-0 list-style-none ml-auto mt-0">
+
                             <li className="nav-item p-2">
-                                <Link to='/home' className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" >Home</Link>
+                                <CustomLink to='/home' className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0 font-semibold" >Home</CustomLink>
                             </li>
-                            {/* <li className="nav-item p-2">
-                                <Link className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" to="/inventory">Inventory</Link>
-                            </li> */}
+                            
                             <li className="nav-item p-2">
-                                <Link className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" to="/blog">Blogs</Link>
+                                <CustomLink className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0 font-semibold" to="/blog">Blogs</CustomLink>
                             </li>
+
                             <li className="nav-item p-2">
-                                <Link className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" to="/contact">Contact Us</Link>
+                                <CustomLink className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0 font-semibold" to="/contact">Contact Us</CustomLink>
                             </li>
 
                         </ul>
 
                     </div>
+
                     <div>
                         <p className="invisible">hidden</p>
                     </div>
@@ -82,18 +91,21 @@ const Header = () => {
                             {/* notification section starts */}
                             <div className="dropdown relative">
                                 <a className=" text-gray-500 hover:text-gray-700 focus:text-gray-700 mr-4 dropdown-toggle hidden-arrow flex items-center " href="#s" id="dropdownMenuButton1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+
                                     {
                                         user ?
                                             <IoMdNotifications></IoMdNotifications>
                                             :
                                             <></>
                                     }
+
                                 </a>
+
                                 <ul className="dropdown-menu min-w-max absolute hidden bg-white text-base z-50 float-left p-2 list-none text-center rounded-lg shadow-lg mt-1  m-0  right-0 bg-clip-padding border-none left-auto" aria-labelledby="dropdownMenuButton1">
+                                    
                                     <li className='mb-2 '>
                                         <a className="dropdown-item text-sm py-2 px-6 font-semibold rounded-lg whitespace-nowrap bg-transparent text-gray " href="#s">Thank you for <br /> chosing us</a>
                                     </li>
-
 
                                 </ul>
                             </div>
@@ -103,6 +115,7 @@ const Header = () => {
                             {/* cart btn action starts */}
                             <div className="dropdown relative">
                                 <a className=" text-gray-500 hover:text-gray-700 focus:text-gray-700 mr-4 dropdown-toggle hidden-arrow flex items-center " href="#s" id="dropdownMenuButton1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+
                                     {
                                         user ?
                                             <BsCartPlus></BsCartPlus>
@@ -112,10 +125,12 @@ const Header = () => {
 
                                 </a>
                                 <ul className="dropdown-menu min-w-max absolute hidden bg-white text-base z-50 float-left p-2 list-none text-center rounded-lg shadow-lg mt-1  m-0  right-0 bg-clip-padding border-none left-auto" aria-labelledby="dropdownMenuButton1">
+                                   
                                     <li className='mb-2 '>
                                         <Link to='/add-item' className="dropdown-item text-sm py-2 px-6 font-semibold rounded-lg whitespace-nowrap bg-transparent text-white bg-green-700 hover:bg-green-600" href="#s">Add items</Link>
                                     </li>
-                                    <li className='mt-4'>
+                                    
+                                    <li className='mt-4 py-1'>
                                         <Link className="dropdown-item text-sm py-2 px-4 font-semibold rounded-lg whitespace-nowrap bg-transparent text-white bg-red-700 hover:bg-red-600" to="/manage-inventory">Delete items</Link>
                                     </li>
 
@@ -138,18 +153,19 @@ const Header = () => {
                                         user ?
 
                                             <div className='mb-3'>
-                                                <li>
-                                                    <Link className=" dropdown-item text-sm py-2 bg-transparent text-gray-700 hover:bg-gray-100   px-10 font-semibold rounded-lg" to='/my-item'>My items</Link>
+                                                <li className="py-1">
+                                                    <CustomLink className=" dropdown-item text-sm py-2 bg-transparent text-gray-700 hover:bg-gray-100   px-10 font-semibold rounded-lg" to='/my-item'>My items</CustomLink>
                                                 </li>
 
-                                                <li>
-                                                    <Link className=" dropdown-item text-sm py-2 bg-transparent text-gray-700 hover:bg-gray-100  px-10 font-semibold rounded-lg" to="/manage-inventory">Manage Items</Link>
+                                                <li  className="py-1">
+                                                    <CustomLink className=" dropdown-item text-sm py-2 bg-transparent text-gray-700 hover:bg-gray-100  px-10 font-semibold rounded-lg" to="/manage-inventory">Manage Items</CustomLink>
                                                 </li>
                                             </div>
                                             :
                                             <></>
                                     }
                                     <li className='p-3'>
+                                        
                                         {
                                             user ?
                                                 <Link to='/login' onClick={handleSingOut} className=" dropdown-item text-sm py-2 px-10 font-semibold rounded-lg whitespace-nowrap bg-transparent text-white bg-red-400 hover:bg-red-300">Log Out</Link>
@@ -161,8 +177,6 @@ const Header = () => {
                                 </ul>
                                 {/* image btn action ends */}
 
-
-
                             </div>
                         </div>
                     </div>
@@ -170,10 +184,6 @@ const Header = () => {
 
                 </div>
             </nav>
-
-
-
-
         </div>
 
 

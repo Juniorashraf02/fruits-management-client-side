@@ -8,6 +8,9 @@ import auth from '../firebase.init';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle, useSendPasswordResetEmail, useSignInWithFacebook, useSignInWithGithub, useAuthState } from 'react-firebase-hooks/auth';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Helmet } from 'react-helmet-async';
+const axios = require('axios').default;
+
 
 
 
@@ -56,10 +59,18 @@ const LogIn = () => {
         }
     }, [emailError, googleError, fbError, gitError, authError, resetError]);
 
-    const handleSubmit = e => {
+    const handleSubmit =async e => {
         e.preventDefault();
-        signInWithEmailAndPassword(users.email, users.pass);
+        await signInWithEmailAndPassword(users.email, users.pass);
+
+        const email = users.email
+        const {data} = await axios.post('http://localhost:5000/login', {email});
+        localStorage.setItem('accessToken', data.accessToken);
+        
+
+
     }
+    
     let navigate = useNavigate();
     let location = useLocation();
     let from = location.state?.from?.pathname || "/";
@@ -108,6 +119,7 @@ const LogIn = () => {
     }
 
     if (user || googleUser || emailUser || gitUser || fbUser) {
+
         navigate(from, { replace: true });
     }
 
@@ -119,12 +131,21 @@ const LogIn = () => {
     return (
 
         <section className="h-screen ">
+            
+            {/* dynamic title */}
+            <Helmet>
+                <title>Log In - warehoue mangement</title>
+            </Helmet>
+
             <p className='text-3xl text-slate-700 font-bold mt-4'>Log In To get full experience</p>
+
             <div className="px-6 h-full text-gray-800">
                 <div className="md:flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full g-6 ">
+                    
                     <div className="grow-0 shrink-1 md:shrink-0 basis-auto xl:w-6/12 lg:w-6/12 md:w-9/12 mb-12 md:mb-0">
                         <img src={loginImage} className="w-full" alt="Sample " />
                     </div>
+
                     <div className="xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
                         <form onSubmit={handleSubmit}>
                             <div className="flex flex-row items-center justify-center lg:justify-start">
@@ -175,7 +196,7 @@ const LogIn = () => {
                             {/* passward input starts */}
                             <div className="mb-3">
                                 <input onChange={handlePassword} type="password" className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                    id="exampleFormControlInput2"
+                                    id="exampleFormControlInput"
                                     placeholder="Password"
                                 />
                             </div>

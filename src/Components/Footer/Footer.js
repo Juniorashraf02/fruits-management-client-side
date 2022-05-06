@@ -6,6 +6,8 @@ import { SiGmail } from 'react-icons/si';
 import { BsWhatsapp, BsMessenger, BsGithub, BsLinkedin } from 'react-icons/bs';
 
 const Footer = () => {
+
+    // getting current year
     const year = new Date().getFullYear();
     return (
         <footer className=" text-center text-white mt-64 mb-0" style={{ "backgroundColor": "#f1f1f1" }}>
@@ -37,8 +39,6 @@ const Footer = () => {
                     </div>
                     {/* sign up for email ends */}
 
-
-
                 </div>
 
 
@@ -46,8 +46,6 @@ const Footer = () => {
 
                 {/* resourses, follow and legal section starts */}
                 <div className="grid grid-cols-3 gap-4 invisible md:visible h-0 md:h-auto ">
-
-
 
                     {/* resorses section starts */}
                     <div>

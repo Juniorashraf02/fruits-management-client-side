@@ -3,13 +3,15 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
 const SingleProduct = ({ product }) => {
-    const {_id, name, price, img, description, quantity, supplier} = product;
+    const { _id, name, price, img, description, quantity, supplier } = product;
     // console.log(id);
 
     const navigate = useNavigate();
-    const handleUpdateBtn=id=>{
+    const handleUpdateBtn = id => {
         navigate(`/inventory/${id}`);
     }
+
+
     return (
         <div className="">
             <div className=" justify-center ">
@@ -23,18 +25,20 @@ const SingleProduct = ({ product }) => {
                             {description}
                         </p>
                         <p className="text-left mb-2 text-gray-400 font-semibold">
-                           <p>Quantity: {quantity}</p>
-                           <p>Supplier: {supplier}</p>
-                           <p className='pl-2'>&nbsp; &nbsp;  price: <span>{price}$</span></p> 
+                            <p>Quantity: {quantity}</p>
+                            <p>Supplier: {supplier}</p>
+                            <p className='pl-2'>&nbsp; &nbsp;  price: <span>{price}$</span></p>
                         </p>
 
 
-                        
-                        
-                        
-                        <button onClick={()=>handleUpdateBtn(_id)} type="button" className=" inline-block px-6 py-2.5 bg-blue-600 text-white font-semibold text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Update</button>
-                        
-                        
+
+
+
+                        <button onClick={() => handleUpdateBtn(_id)} type="button" className=" inline-block px-6 py-2.5 bg-blue-600 text-white font-semibold text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Update</button>
+
+
+
+
                     </div>
                 </div>
             </div>

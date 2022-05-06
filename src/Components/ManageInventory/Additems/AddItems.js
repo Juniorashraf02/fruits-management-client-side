@@ -2,7 +2,7 @@ import React from 'react';
 import { useForm } from "react-hook-form";
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from './../../firebase.init';
-
+import { Helmet } from 'react-helmet-async';
 const AddItems = () => {
   const [user] = useAuthState(auth);
 
@@ -24,15 +24,6 @@ const AddItems = () => {
 
     window.confirm('successfully added item')
     
-
-    // const url2 = `http://localhost:5000/newItem`
-    // fetch(url2,{
-    //   method: 'POST',
-    //   headers: {
-    //     'content-type': 'application/json'
-    //   },
-    //   body: JSON.stringify(data)
-    // }).then(response => response.json()).then(data => console.log(data))
   };
 
  
@@ -46,7 +37,9 @@ const AddItems = () => {
 
 
     <form className='md:w-1/2 container mx-auto mt-20 px-5' onSubmit={handleSubmit(onSubmit)}>
-
+            <Helmet>
+                <title>Add items - Fruits Warehouse</title>
+            </Helmet>
       <div className="md:flex gap-10">
 
 

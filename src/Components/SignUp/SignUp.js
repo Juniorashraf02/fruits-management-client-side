@@ -7,7 +7,7 @@ import { useCreateUserWithEmailAndPassword,useSignInWithGoogle, useSignInWithFac
 import auth from '../firebase.init';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import { Helmet } from 'react-helmet-async';
 
 
 
@@ -142,6 +142,9 @@ const SignUp = () => {
     return (
 
         <div className='px-6 max-w-md mx-auto mb-5'>
+                        <Helmet>
+                <title>Sign Up - warehoue mangement</title>
+            </Helmet>
             <div className="p-6 rounded-lg shadow-lg bg-white max-w-md mx-auto my-5">
                 <form onSubmit={handleSubmitBtn}>
 

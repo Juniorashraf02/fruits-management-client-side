@@ -113,10 +113,29 @@ const SingleInventoryProduct = () => {
                             </div>
 
                         </form>
-                        <button onClick={handleReduceQuantity} type="button" className="inline-block px-6 py-2.5 bg-gray-800 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-gray-900 hover:shadow-lg focus:bg-gray-900 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-900 active:shadow-lg transition duration-150 ease-in-out">Delivered</button>
+
+                        {
+                            parseInt(quantity)===0?
+                            <></>
+                            :
+                            <button onClick={handleReduceQuantity} type="button" className="inline-block px-6 py-2.5 bg-gray-800 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-gray-900 hover:shadow-lg focus:bg-gray-900 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-900 active:shadow-lg transition duration-150 ease-in-out">Delivered</button>
+                        }
+                        
 
 
-                        <button type="button" className="mt-1 inline-block px-6 py-2 border-2 border-gray-200 cursor-not-allowed text-gray-600 font-bold text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">{textArray[randomNumber]}</button>
+
+
+                        {
+                            parseInt(quantity)===0?
+                            <button type="button" className="mt-1 inline-block px-6 py-2 border-2 border-gray-200 cursor-not-allowed text-gray-600 font-bold text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">SOLD</button>
+                            
+                            :
+
+                            <button type="button" className="mt-1 inline-block px-6 py-2 border-2 border-gray-200 cursor-not-allowed text-gray-600 font-bold text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">{textArray[randomNumber]}</button>
+                        }
+
+
+
 
                     </div>
                 </div>

@@ -14,11 +14,13 @@ const Inventory = () => {
         <div id="inventory">
             <h1 className="text-2xl mt-20 font-semibold text-slate-700">Inventory</h1>
             <div className='border-y-2 border-sky-400 rounded-lg p-5 container mx-auto grid md:grid-cols-3 gap-4 my-24'>
+                
                 {
                     newProducts.map((product) => <SingleProduct
                         key={product._id} product={product} 
                     ></SingleProduct>)
                 }
+                
             </div>
 
 
