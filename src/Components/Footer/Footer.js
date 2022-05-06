@@ -115,7 +115,7 @@ const Footer = () => {
                     <a className="text-2xl" style={{ "color": "black", "marginLeft": "30px" }} target="_blank" href="mailto:shuvo.istiak11@gmail.com">
                         <SiGmail></SiGmail>
                     </a>
-                    <a className="text-2xl" style={{ "color": "black", "marginLeft": "30px" }} target="_blank" href=" https://wa.me/01612016614">
+                    <a className="text-2xl" style={{ "color": "black", "marginLeft": "30px" }} target="_blank" href=" https://wa.me/+8801612016614">
                         <BsWhatsapp></BsWhatsapp>
                     </a>
                     <a className="text-2xl" style={{ "color": "black", "marginLeft": "30px" }} target="_blank" href="http://m.me/juniorashraf02">
