@@ -31,7 +31,9 @@ const ManageInventory = () => {
                     <button type="button" className=" inline-block px-6 py-2.5 bg-lime-600 text-white font-semibold text-xs leading-tight uppercase rounded shadow-md hover:bg-lime-700 hover:shadow-lg focus:bg-lime-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-lime-800 active:shadow-lg transition duration-150 ease-in-out">Add Items to inventory</button>
                 </Link>
             </div>
-            <div className=' border-sky-400 rounded-lg p-5 container mx-auto grid md:grid-cols-3 gap-4 my-24'>
+            <h1 className="text-xl text-gray-400 font-semibold h-0 mt-10">Total Inventory Items: {products.length}</h1>
+            <div className=' border-sky-400 rounded-lg p-5 container mx-auto grid md:grid-cols-3 gap-4 mb-24 mt-5'>
+
 
                 {
                     products.map(product => <ManageItems

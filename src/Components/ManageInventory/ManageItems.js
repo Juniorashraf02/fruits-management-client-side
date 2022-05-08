@@ -8,13 +8,13 @@ const ManageItems = ({ product, handleDelete }) => {
 
     return (
         <div className="">
-            <div className=" justify-center">
+            <div className=" justify-center transition ease-in-out delay-150 hover:-translate-y-.5 hover:scale-105">
                 <div className="rounded-lg shadow-lg bg-white max-w-sm">
                     <a href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light">
                         <img className="rounded-t-lg h-60 mx-auto w-max" src={img} alt="" />
                     </a>
-                    <div className="p-5">
-                        <h5 className="text-gray-900 text-xl font-medium mb-2">{name}</h5>
+                    <div className="p-5 hover:bg-orange-100">
+                        <h5 className="text-gray-900 text-xl font-semibold mb-2">{name}</h5>
                         <p className="text-gray-400 text-base mb-4 text-justify">
                             {description}
                         </p>
