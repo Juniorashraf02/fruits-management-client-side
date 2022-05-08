@@ -4,6 +4,7 @@ import DownloadAppSection from '../DownloadAppSection/DownloadAppSection';
 import HowItWork from '../HowItWork/HowItWork';
 import Inventory from '../HomeInventory/HomeInventory';
 import { Helmet } from 'react-helmet-async';
+import Charts from './../../Charts/Charts';
 
 const Home = () => {
     return (
@@ -16,6 +17,7 @@ const Home = () => {
             <Banner />
             <Inventory />
             <HowItWork />
+            <Charts/>
             <DownloadAppSection />
         </div>
     );

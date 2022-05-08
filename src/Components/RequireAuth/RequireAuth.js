@@ -1,9 +1,9 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { Routes, Route, Link, useNavigate, useLocation, Navigate, Outlet, } from "react-router-dom";
+import { useLocation, Navigate } from "react-router-dom";
 import auth from '../firebase.init'
 const RequireAuth = ({ children }) => {
-    const [user, loading, error] = useAuthState(auth);
+    const [user, loading] = useAuthState(auth);
     let location = useLocation();
 
     
