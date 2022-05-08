@@ -8,7 +8,7 @@ const ManageItems = ({ product, handleDelete }) => {
 
     return (
         <div className="">
-            <div className=" justify-center transition ease-in-out delay-150 hover:-translate-y-.5 hover:scale-105">
+            <div className=" justify-center transition ease-in-out delay-150 hover:-translate-y-.5 hover:scale-105 duration-500">
                 <div className="rounded-lg shadow-lg bg-white max-w-sm">
                     <a href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light">
                         <img className="rounded-t-lg h-60 mx-auto w-max" src={img} alt="" />
