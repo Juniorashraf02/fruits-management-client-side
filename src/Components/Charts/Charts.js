@@ -11,7 +11,7 @@ const Charts = () => {
             <ResponsiveContainer>
             <div className="container justify-center md:flex items-center gap-5">
                 
-                <AreaChart className="w-1/2" width={350} height={250} data={products}>
+                <AreaChart className="w-1/2" width={320} height={250} data={products}>
                     <defs>
                         <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
                             <stop offset="5%" stopColor="#8884d8" stopOpacity={0.8} />
@@ -30,7 +30,7 @@ const Charts = () => {
                     <Area type="monotone" dataKey="quantity" stroke="#8884d8" fillOpacity={1} fill="url(#colorUv)" />
                     <Area type="monotone" dataKey="price" stroke="#8884d8" fillOpacity={1} fill="url(#colorPv)" />
                 </AreaChart>
-                <div className="text-justify text-xl p-5 md:text-3xl text-violet-500 md:w-1/2">
+                <div className="text-justify text-xl px-5 md:text-3xl text-violet-500 md:w-1/2">
                     <p>See our items summary. They contains the info about our products's name, price, quantity. This will help you guys a lot!</p>
                 </div>
             </div>
