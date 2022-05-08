@@ -104,7 +104,7 @@ const SingleInventoryProduct = () => {
                         <form onSubmit={handleAddQuantity} className="flex justify-center items-center my-2">
                             <div className=" ">
 
-                                <input type="text" className=" form-control block w-full px-3 py-1.5 text-center font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="" name="quantity" placeholder="Add quantity" />
+                                <input className=" form-control block w-full px-3 py-1.5 text-center font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="" name="quantity" placeholder="Add quantity" type="number"/>
                             </div>
                             <div className="">
 
